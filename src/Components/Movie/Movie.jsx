@@ -1,10 +1,17 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Container, Conteudo, Titulo, Sinopse, Img, Generos, Avaliacao, Section, ContainerAvaliacao } from './style.jsx';
+import { formatarData } from '../MoviesCard/MoviesCard.jsx';
+import { Container, Conteudo, Titulo, Sinopse, Img, Avaliacao, Section, ContainerAvaliacao, PosTitulo, Generos, Date } from './style.jsx';
 
 const apiKey = import.meta.env.VITE_API_KEY;
-const MovieURL = import.meta.env.VITE_API;
+const movieURL = import.meta.env.VITE_API;
 const imgURL = import.meta.env.VITE_IMG;
+
+const converterParaHorasEMinutos = (duracaoEmMinutos) => {
+  const horas = Math.floor(duracaoEmMinutos / 60);
+  const minutos = duracaoEmMinutos % 60;
+  return `${horas}h ${minutos}min`;
+};
 
 const Movie = () => {
   const [movie, setMovie] = React.useState(null);
@@ -17,9 +24,11 @@ const Movie = () => {
   }; 
 
   React.useEffect(() => {
-    const filmeDetalhes = `${MovieURL}${id}?${apiKey}&language=pt-BR`;
+    const filmeDetalhes = `${movieURL}${id}?${apiKey}&language=pt-BR`;
     filme(filmeDetalhes);
   }, [id]);
+
+  const duracaoFormatada = movie && typeof movie.runtime === 'number' ? converterParaHorasEMinutos(movie.runtime) : '';
 
   return (
     <Section backdrop={movie ? imgURL + movie.backdrop_path : ''}>
@@ -31,7 +40,9 @@ const Movie = () => {
 
           <Conteudo>
             <Titulo>{movie.title} ({movie.release_date.substring(0, 4)})</Titulo>
-            <Generos>{movie.genres.map((genre) => genre.name).join(', ')}</Generos>
+            <PosTitulo><Date>{formatarData(movie.release_date)}</Date><Generos>{movie.genres.map((genre) => genre.name).join(', ')}</Generos>
+              <span>{duracaoFormatada}</span>
+            </PosTitulo>
             <ContainerAvaliacao>
               <Avaliacao>{movie.vote_average.toFixed(1).replace('.', '')}</Avaliacao>
               <p>Avaliação <br /> Usúarios</p>

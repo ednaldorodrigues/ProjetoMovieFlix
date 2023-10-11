@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams  } from 'react-router-dom';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import { Container, Div, Titulo } from './style.jsx';
+import { Container, Div, Titulo, LinkStyled } from './style.jsx';
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const searchURL = import.meta.env.VITE_SEARCH;
@@ -14,7 +14,7 @@ const Search = () => {
   const pesquisa = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
-    setMovies(data.results.filter((movie) => movie.poster_path !== null));
+    setMovies(data.results.filter((movie) => movie.poster_path !== null && movie.vote_average !== 0));
   };
 
   React.useEffect(() => {
@@ -29,7 +29,7 @@ const Search = () => {
       <Container>
         {movies && movies.map((movie) => (
           <Div key={movie.id}>
-            <Link to={`/movie/${movie.id}`}><MoviesCard movie={movie}/></Link>        
+            <LinkStyled to={`/movie/${movie.id}`}><MoviesCard movie={movie}/></LinkStyled>        
           </Div>
         ))}
       </Container>
