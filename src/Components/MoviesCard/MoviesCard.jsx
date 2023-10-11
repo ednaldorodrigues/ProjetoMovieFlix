@@ -3,7 +3,7 @@ import { Div, Img, TituloFilme, Data, Avaliacao, LinkStyled } from './style.jsx'
 
 const imgURL = import.meta.env.VITE_IMG;
 
-const formatarData = (data) => {
+export const formatarData = (data) => {
   const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
   return new Date(data).toLocaleDateString('pt-BR', options);
 };

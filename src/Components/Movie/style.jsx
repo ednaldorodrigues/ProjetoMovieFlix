@@ -29,8 +29,35 @@ export const Titulo = styled.div`
     font-weight: bold;
 `;
 
-export const Generos = styled.p`
-    
+export const PosTitulo = styled.p`
+    display: flex;
+    align-items: center;
+    margin-top: .2rem;
+    gap: 1.5rem;
+`;
+
+export const Generos = styled.span`
+    &:after {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 12px;
+        border-radius: 50%;
+    }
+`; 
+
+export const Date = styled.span`
+    &:after {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 10px;
+        border-radius: 50%;
+    }
 `;
 
 export const Avaliacao = styled.p`
