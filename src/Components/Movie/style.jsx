@@ -19,7 +19,6 @@ export const Container = styled.div`
 `;
 
 export const Conteudo = styled.div`
-    margin-top: 3rem;
     margin-right: 1rem;
     width: 100%;
 `;
@@ -95,4 +94,24 @@ export const Img = styled.img`
     &:hover {
         ${({ homepage }) => homepage ? 'transform: scale(1.02)' : ''}
     }
+`;
+
+export const ContainerDiretores = styled.ul`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+`;
+
+export const Lista = styled.li`
+    list-style: none;
+    width: 250px;
+    margin-bottom: 1rem;
+`;
+
+export const DiretorNome = styled.p`
+    font-weight: bold;
+`;
+
+export const JobNome = styled.p`
+    font-size: .9rem;
 `;

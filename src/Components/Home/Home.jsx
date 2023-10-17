@@ -2,23 +2,29 @@ import React from 'react';
 import { Titulo,Container, Div } from './style.jsx';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Capa from '../../Capa/Capa.jsx';
+import Loading from '../../Loading/Loading.jsx';
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const moviesURL = import.meta.env.VITE_API;
 
 const Home = () => {
   const [dados, setDados] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+  const [erro, setErro] = React.useState(null);
 
   const moviesPopulares = async (url) => {
 
     try {
+      setLoading(true);
       const response = await fetch(url);
       const data = await response.json();
       if(data.results) {
         setDados(data.results.filter((dado) => dado.poster_path !== null));
       }
     } catch {
-      alert('Erro ao buscar dados da API');
+      setErro('Erro ao obter dados.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -27,6 +33,10 @@ const Home = () => {
     moviesPopulares(apiURL);
   }, []);
 
+  if(loading) return <Loading />;
+  if(erro) return <p>{erro}</p>;
+  if(dados === null) return null;
+  
   return (
     <main>
       <Capa />

@@ -25,7 +25,7 @@ export const Input = styled.input`
     padding: .8rem 1rem;
     width: 300px;
     border-radius: 4px;
-    border: 1px solid #eee;
+    border: 1px solid ${(props) => props.temErro ? '#ec1c1c' : '#eee'};
     background: #eee;
     font-size: 1rem;
     transition: .4s;
@@ -34,8 +34,15 @@ export const Input = styled.input`
         outline: none;
         background: #fff;
         border-color: #fff;
-        box-shadow: 0 0 0 2px #01547D;
+        box-shadow: 0 0 0 2px ${(props) => props.temErro ? '#ec1c1c' : '#01547D'};
     }
+`;
+
+export const Erro = styled.p`
+    color: #ec1c1c;
+    margin-top: 2px;
+    position: absolute;
+    font-size: .9rem;
 `;
 
 export const Button = styled.button`
