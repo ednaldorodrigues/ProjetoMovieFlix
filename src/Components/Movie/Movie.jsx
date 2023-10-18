@@ -28,7 +28,7 @@ const Movie = () => {
       const data = await response.json();
       setMovie(data);
     } catch {
-      setErro('Erro buscar informações sobre esse filme');
+      setErro('Erro ao buscar informações sobre esse filme');
     } finally {
       setLoading(false);
     }
