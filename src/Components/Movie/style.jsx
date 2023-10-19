@@ -115,3 +115,9 @@ export const DiretorNome = styled.p`
 export const JobNome = styled.p`
     font-size: .9rem;
 `;
+
+export const Error = styled.p`
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+`;
