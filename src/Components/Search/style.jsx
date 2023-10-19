@@ -20,3 +20,9 @@ export const LinkStyled = styled(Link)`
     text-decoration: none;
     background-color: black;
 `;
+
+export const Error = styled.p`
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+`;

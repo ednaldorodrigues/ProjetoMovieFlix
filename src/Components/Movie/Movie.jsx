@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { formatarData } from '../MoviesCard/MoviesCard.jsx';
-import { Container, Conteudo, Titulo, Sinopse, Img, Avaliacao, Section, ContainerAvaliacao, PosTitulo, Generos, Date, ContainerDiretores , Lista, DiretorNome, JobNome } from './style.jsx';
+import { Container, Conteudo, Titulo, Sinopse, Img, Avaliacao, Section, ContainerAvaliacao, PosTitulo, Generos, Date, ContainerDiretores , Lista, DiretorNome, JobNome, Error } from './style.jsx';
 import Loading from '../../Loading/Loading.jsx';
+import useApi from '../../useApi/useApi.jsx';
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const movieURL = import.meta.env.VITE_API;
@@ -15,44 +16,15 @@ const converterParaHorasEMinutos = (duracaoEmMinutos) => {
 };
 
 const Movie = () => {
-  const [movie, setMovie] = React.useState(null);
-  const [credits, setCredits] = React.useState(null);
-  const [erro, setErro] = React.useState(null);
-  const [loading, setLoading] = React.useState(false);
   const { id } = useParams();
-
-  const filme = async (url) => {
-    try {
-      setLoading(true);
-      const response = await fetch(url);
-      const data = await response.json();
-      setMovie(data);
-    } catch {
-      setErro('Erro buscar informações sobre esse filme');
-    } finally {
-      setLoading(false);
-    }
-  }; 
-
-  const creditos = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    setCredits(data);
-  };
-
-  React.useEffect(() => {
-    const filmeDetalhes = `${movieURL}${id}?${apiKey}&language=pt-BR`;
-    filme(filmeDetalhes);
-    const creditosPessoas = `${movieURL}${id}/credits?${apiKey}&language=pt-BR`;
-    creditos(creditosPessoas);
-  }, [id]);
+  const { data: movie, error, loading } = useApi(`${movieURL}${id}?${apiKey}&language=pt-BR`);
+  const { data: credits } = useApi(`${movieURL}${id}/credits?${apiKey}&language=pt-BR`);
 
   const duracaoFormatada = movie && typeof movie.runtime === 'number' ? converterParaHorasEMinutos(movie.runtime) : '';
 
   if(loading) return <Loading />;
-  if(erro) return <p>{erro}</p>;
-  if(movie === null) return null;
-  if(credits === null) return null;
+  if(error) return <Error>{error}</Error>;
+  if(!movie || !credits ) return null;
   
   return (
     <Section backdrop={movie ? imgURL + movie.backdrop_path : ''}>

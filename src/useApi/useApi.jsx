@@ -12,8 +12,8 @@ const useApi = (url) => {
         const response = await fetch(url);
         const result = await response.json();
         setData(result);
-      } catch(error) {
-        setError(error);
+      } catch {
+        setError('Um erro ocorreu. Por favor, tente novamente mais tarde.');
       } finally {
         setLoading(false);
       }

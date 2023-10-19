@@ -14,3 +14,9 @@ export const Div = styled.div`
     max-width: 15%;
     margin-left: 3rem;
 `;
+
+export const Error = styled.p`
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+`;
