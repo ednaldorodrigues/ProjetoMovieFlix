@@ -33,8 +33,22 @@ export const Titulo = styled.h1`
     padding-left: 3rem;
     color: #fff;
     font-size: 2.5rem;
+
+    @media (max-width: 700px) {
+        text-align: center;
+        padding: 0 1rem;
+    }
+
+    @media (max-width: 540px) {
+        top: 50px;
+        font-size: 2rem;
+    }
 `;
 
 export const Span = styled.span`
 font-size: 3rem;
+
+    @media (max-width: 540px) {
+        font-size: 2.5rem;
+    }
 `;

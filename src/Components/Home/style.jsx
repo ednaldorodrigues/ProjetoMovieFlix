@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 
 export const Titulo = styled.h1`
-    margin: 40px 0 20px 48px;
+    margin: 2rem auto;
     font-size: 1.8rem;
+    width: 90%;
 `;
 
 export const Container = styled.section`
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0 auto;
+    width: 90%;
 `;
 
 export const Div = styled.div`
-    max-width: 15%;
-    margin-left: 3rem;
+    max-width: 17%;
 `;
 
 export const Error = styled.p`
