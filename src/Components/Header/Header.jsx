@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
-import { HeaderStyled, Nav, Input, Button, Form, Erro } from './style.jsx';
+import { HeaderStyled, Nav, Input, Button, Form, Erro, Img } from './style.jsx';
+import logo from '../../img/logo.png';
 
 const Header = () => {
   const [value, setValue] = React.useState([]);
@@ -21,19 +22,19 @@ const Header = () => {
   return (
     <HeaderStyled>
       <Nav>
-        <Link to="/">movieflix</Link>
+        <Link to="/"> <Img src={logo} alt="logo.png" /> </Link>
 
         <Form onSubmit={(e) => e.preventDefault()}>
           <Input 
             type="text"
             value={value}
-            placeholder='Pesquisar'
+            placeholder='Buscar...'
             maxLength={'25'}
             onChange={({ target }) => {
               setValue(target.value);
               if(value) setErro(null);
             }}
-            temErro={erro !== null}
+            temerro={erro !== null}
           />
           <Erro>{erro}</Erro>
           <Button onClick={handleClick}><BiSearch/></Button>

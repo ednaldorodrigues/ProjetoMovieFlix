@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-    background-image: ${({ backdrop }) => backdrop ? `linear-gradient(rgba(4, 81, 119, 0.6), rgba(4, 81, 119, 0.6)), url(${backdrop})` : 'none'};
+    background-image: ${props =>
+    props.backdrop
+      ? `linear-gradient(rgba(4, 81, 119, 0.6), rgba(4, 81, 119, 0.6)), url(${props.backdrop})`
+      : 'none'};
     background-size: cover;
     background-position: center;
     width: 100%;

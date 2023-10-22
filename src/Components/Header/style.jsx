@@ -7,25 +7,36 @@ export const HeaderStyled = styled.header`
     max-width: 100%;
 `;
 
+export const Img = styled.img`
+    display: block;
+    margin: 0 auto;
+`;
+
 export const Form = styled.form`
     position: relative;
 `;
 
 export const Nav = styled.nav`
-    width: 90%;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem;
+    width: 90%;
+    margin: 1.25rem auto;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: normal;
+        gap: 1rem;
+        margin: 1rem auto;
+    }
 `;
 
 export const Input = styled.input`
-    padding: .8rem 1rem;
+    padding: .7rem;
     width: 300px;
     border-radius: 4px;
-    border: 1px solid ${(props) => props.temErro ? '#ec1c1c' : '#eee'};
+    border: 1px solid ${(props) => props.temerro ? '#ec1c1c' : '#eee'};
     background: #eee;
     font-size: 1rem;
     transition: .4s;
@@ -34,7 +45,16 @@ export const Input = styled.input`
         outline: none;
         background: #fff;
         border-color: #fff;
-        box-shadow: 0 0 0 2px ${(props) => props.temErro ? '#ec1c1c' : '#01547D'};
+        box-shadow: 0 0 0 2px ${(props) => props.temerro ? '#ec1c1c' : '#01547D'};
+    }
+
+    @media (max-width: 768px) {
+        width: 95%;
+        
+    }
+
+    @media (max-width: 400px) {
+        
     }
 `;
 
