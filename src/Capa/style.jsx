@@ -41,7 +41,7 @@ export const Titulo = styled.h1`
 
     @media (max-width: 540px) {
         top: 50px;
-        font-size: 2rem;
+        font-size: 2.3rem;
     }
 `;
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams  } from 'react-router-dom';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import Loading from '../../Loading/Loading.jsx';
-import { Container, Div, Titulo, LinkStyled, Error } from './style.jsx';
+import { Container, Titulo, LinkStyled, Error } from './style.jsx';
 import useApi from '../../useApi/useApi';
 
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -26,9 +26,9 @@ const Search = () => {
       
       <Container>
         {moviesFiltrados.map((movie) => (
-          <Div key={movie.id}>
+          <div key={movie.id}>
             <LinkStyled to={`/movie/${movie.id}`}><MoviesCard movie={movie}/></LinkStyled>        
-          </Div>
+          </div>
         ))}
       </Container>
      

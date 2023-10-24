@@ -1,5 +1,5 @@
 import React from 'react';
-import { Titulo,Container, Div, Error } from './style.jsx';
+import { Titulo,Container, Error } from './style.jsx';
 import MoviesCard from '../MoviesCard/MoviesCard.jsx';
 import Capa from '../../Capa/Capa.jsx';
 import Loading from '../../Loading/Loading.jsx';
@@ -24,9 +24,9 @@ const Home = () => {
       
       <Container>
         {dadosFiltrados.map((movie) => (
-          <Div key={movie.id}>
+          <div key={movie.id}>
             <MoviesCard movie={movie}/>        
-          </Div>
+          </div>
         ))}
       </Container>
      

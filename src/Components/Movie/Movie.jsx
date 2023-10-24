@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { formatarData } from '../MoviesCard/MoviesCard.jsx';
-import { Container, Conteudo, Titulo, Sinopse, Img, Avaliacao, Section, ContainerAvaliacao, PosTitulo, Generos, Date, ContainerDiretores , Lista, DiretorNome, JobNome, Error } from './style.jsx';
+import { Container, Conteudo, Descricao, Titulo, Sinopse, Img, Avaliacao, Section, ContainerAvaliacao, PosTitulo, Generos, Date, ContainerDiretores , Lista, DiretorNome, JobNome, Error } from './style.jsx';
 import Loading from '../../Loading/Loading.jsx';
 import useApi from '../../useApi/useApi.jsx';
 
@@ -44,7 +44,7 @@ const Movie = () => {
               <p>Avaliação <br /> Usúarios</p>
             </ContainerAvaliacao>
             <Sinopse>Sinopse:</Sinopse>
-            <p>{movie.overview}</p>
+            <Descricao>{movie.overview}</Descricao>
             
             <ContainerDiretores>
               {credits && credits.crew.filter((diretores) => diretores.job === 'Director' || diretores.job === 'Writer' || diretores.job === 'Screenplay').map((diretor, index) => (
