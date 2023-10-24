@@ -29,6 +29,7 @@ export const Nav = styled.nav`
         align-items: normal;
         gap: 1rem;
         margin: 1rem auto;
+        padding-bottom: .5rem;
     }
 `;
 

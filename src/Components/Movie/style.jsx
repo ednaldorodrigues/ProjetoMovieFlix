@@ -19,11 +19,21 @@ export const Container = styled.div`
     margin-left: 4rem;
     gap: 3rem;
     color: #fff;
+
+    @media (max-width: 920px) {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
 `;
 
 export const Conteudo = styled.div`
-    margin-right: 1rem;
+    flex-wrap: wrap;
     width: 100%;
+
+    @media (max-width: 920px) {
+        width: 90%;
+    }
 `;
 
 export const Titulo = styled.div`
@@ -86,7 +96,15 @@ export const ContainerAvaliacao = styled.div`
 
 export const Sinopse = styled.h3`
     font-size: 1.4rem;
+
+    @media (max-width: 920px) {
+        margin-bottom: .5rem;
+    }
 `; 
+
+export const Descricao = styled.p`
+    
+`;
 
 export const Img = styled.img`
     border-radius: 8px;
@@ -103,11 +121,17 @@ export const ContainerDiretores = styled.ul`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
+
+    @media (max-width: 920px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+    }
 `;
 
 export const Lista = styled.li`
     list-style: none;
-    width: 250px;
     margin-bottom: 1rem;
 `;
 

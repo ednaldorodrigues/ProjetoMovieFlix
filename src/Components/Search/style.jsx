@@ -5,18 +5,31 @@ export const Titulo = styled.h1`
     margin: 2rem auto;
     font-size: 1.8rem;
     width: 90%;
+
+    @media (max-width: 450px) {
+       text-align: center;
+    }
 `;
 
 export const Container = styled.section`
-   display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     margin: 0 auto;
+    padding: 0 1rem;
     width: 90%;
-`;
 
-export const Div = styled.div`
-    max-width: 17%;
+    @media (max-width: 1000px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 550px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 
 export const LinkStyled = styled(Link)`

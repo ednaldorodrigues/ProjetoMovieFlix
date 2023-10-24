@@ -6,7 +6,7 @@ const Capa = () => {
   return (
     <Figure>
       <Img src={capa} alt='capa-principal' />
-      <Titulo><Span>Bem vindo.</Span> <br /> Milhões de filmes e Séries para descobrir, Explore já.</Titulo>
+      <Titulo><Span>Bem vindo.</Span> <br /> Milhões de filmes e séries para descobrir, Explore já.</Titulo>
       <Overlay />
     </Figure>
   );
