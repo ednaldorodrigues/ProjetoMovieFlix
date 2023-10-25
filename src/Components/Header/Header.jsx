@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BiSearch } from 'react-icons/bi';
 import { HeaderStyled, Nav, Input, Button, Form, Erro, Img } from './style.jsx';
 import logo from '../../img/logo.png';
@@ -7,12 +7,16 @@ import logo from '../../img/logo.png';
 const Header = () => {
   const [value, setValue] = React.useState([]);
   const [erro, setErro] = React.useState(null);
-
+  const location = useLocation();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    setErro(null);
+  }, [location.pathname]);
 
   function handleClick() {
     if(value.length === 0) {
-      return setErro('Por favor, preencha um valor !');
+      return setErro('Preencha um valor.');
     }
     navigate(`/search?q=${value}`);
     setErro(null);

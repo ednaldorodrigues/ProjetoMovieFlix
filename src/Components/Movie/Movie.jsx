@@ -36,13 +36,22 @@ const Movie = () => {
 
           <Conteudo>
             <Titulo>{movie.title} ({movie.release_date.substring(0, 4)})</Titulo>
-            <PosTitulo><Date>{formatarData(movie.release_date)}</Date><Generos>{movie.genres.map((genre) => genre.name).join(', ')}</Generos>
+
+            <PosTitulo>
+              <Date>
+                {formatarData(movie.release_date)}
+              </Date>
+              <Generos>
+                {movie.genres.map((genre) => genre.name).join(', ')}
+              </Generos>
               <span>{duracaoFormatada}</span>
             </PosTitulo>
+
             <ContainerAvaliacao>
               <Avaliacao>{movie.vote_average.toFixed(1).replace('.', '')}</Avaliacao>
               <p>Avaliação <br /> Usúarios</p>
             </ContainerAvaliacao>
+            
             <Sinopse>Sinopse:</Sinopse>
             <Descricao>{movie.overview}</Descricao>
             

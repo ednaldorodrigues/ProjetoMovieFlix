@@ -43,9 +43,15 @@ export const Titulo = styled.div`
 
 export const PosTitulo = styled.p`
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: .2rem;
     gap: 1.5rem;
+
+    @media (max-width: 440px) {
+        gap: 1rem;
+        font-size: .9rem;
+    }
 `;
 
 export const Generos = styled.span`
@@ -57,6 +63,10 @@ export const Generos = styled.span`
         background-color: #fff;
         margin: 6px 12px;
         border-radius: 50%;
+
+        @media (max-width: 440px) {
+            margin: 6px 6px;
+        }
     }
 `; 
 
@@ -69,6 +79,10 @@ export const Date = styled.span`
         background-color: #fff;
         margin: 6px 10px;
         border-radius: 50%;
+
+        @media (max-width: 440px) {
+            margin: 6px 6px;
+        }
     }
 `;
 
